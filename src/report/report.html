@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Relatório - AvaliWeb</title>
+
+    <link
+        rel="stylesheet"
+        href="report.css"
+    >
+
+</head>
+
+<body>
+
+    <header class="report-header">
+
+        <div class="header-content">
+
+            <div>
+
+                <h1>AvaliWeb</h1>
+
+                <p>
+                    Relatório de avaliação automatizada
+                    de interface web
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    id="downloadReport"
+                    class="primary-button"
+                >
+                    Baixar PDF
+                </button>
+
+                <button
+                    id="printReport"
+                    class="secondary-button"
+                >
+                    Imprimir
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section
+            id="loading"
+            class="message"
+        >
+            Carregando relatório...
+        </section>
+
+
+        <section
+            id="report"
+            class="hidden"
+        >
+
+            <!-- ==================================
+                 INFORMAÇÕES DA PÁGINA
+            =================================== -->
+
+            <section class="card">
+
+                <h2>Informações da página</h2>
+
+                <div
+                    id="pageInfo"
+                    class="page-info"
+                ></div>
+
+            </section>
+
+
+            <!-- ==================================
+                 RESUMO
+            =================================== -->
+
+            <section class="card">
+
+                <h2>Resumo da avaliação</h2>
+
+                <div
+                    id="categoryScores"
+                    class="category-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- ==================================
+                 CRITÉRIOS
+            =================================== -->
+
+            <section class="card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>Critérios avaliados</h2>
+
+                        <p>
+                            Cada critério apresenta o resultado
+                            consolidado da avaliação, os elementos
+                            relacionados e a recomendação de melhoria.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="criteriaList"
+                    class="criteria-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+
+        <section
+            id="empty"
+            class="message hidden"
+        >
+
+            <h2>Nenhuma análise encontrada</h2>
+
+            <p>
+                Realize uma análise pelo AvaliWeb
+                antes de abrir o relatório.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="report.js"></script>
+
+</body>
+
+</html>

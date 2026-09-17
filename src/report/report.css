@@ -1,0 +1,422 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.report-header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 30px;
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.report-header h1 {
+    margin: 0 0 5px;
+    font-size: 28px;
+}
+
+.report-header p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.primary-button {
+    background: #222;
+    color: white;
+}
+
+.primary-button:hover {
+    opacity: 0.9;
+}
+
+.secondary-button {
+    background: #e9e9e9;
+    color: #222;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+
+/* ========================================
+   CARDS
+======================================== */
+
+.card {
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding: 24px;
+
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+}
+
+
+/* ========================================
+   INFORMAÇÕES DA PÁGINA
+======================================== */
+
+.page-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 12px;
+}
+
+.info-item {
+    padding: 12px;
+
+    background: #f7f7f7;
+
+    border-radius: 6px;
+
+    word-break: break-word;
+}
+
+.info-label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 4px;
+}
+
+
+/* ========================================
+   NOTAS
+======================================== */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 15px;
+}
+
+.category-card {
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    background: #fafafa;
+}
+
+.category-name {
+    font-size: 14px;
+
+    color: #666;
+
+    margin-bottom: 8px;
+}
+
+.category-score {
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   CRITÉRIOS
+======================================== */
+
+.criteria-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.criterion {
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    background: #fff;
+}
+
+.criterion-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+}
+
+.criterion-title {
+    margin: 0;
+
+    font-size: 17px;
+}
+
+.criterion-id {
+    font-size: 12px;
+
+    color: #777;
+
+    margin-bottom: 4px;
+}
+
+.criterion-score {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.criterion-section {
+    margin-top: 15px;
+}
+
+.criterion-section-title {
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.criterion-section p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    color: #444;
+}
+
+
+/* ========================================
+   ELEMENTOS
+======================================== */
+
+.elements-list {
+    margin: 8px 0 0;
+
+    padding-left: 20px;
+}
+
+.elements-list li {
+    margin-bottom: 6px;
+
+    font-family: Consolas, monospace;
+
+    font-size: 13px;
+
+    word-break: break-word;
+}
+
+.elements-count {
+    color: #666;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+/* ========================================
+   CLASSIFICAÇÃO
+======================================== */
+
+.classification {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 5px;
+
+    background: #eee;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+
+/* ========================================
+   MENSAGENS
+======================================== */
+
+.message {
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* ========================================
+   IMPRESSÃO
+======================================== */ 
+
+.element-selector {
+    font-family: Consolas, monospace;
+}
+
+.element-occurrences {
+    margin-left: 8px;
+    color: #666;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        background: white;
+        color: #222;
+    }
+
+    .report-header {
+        border-bottom: none;
+        padding: 0 0 20px;
+    }
+
+    .header-content {
+        max-width: none;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
+    .container {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .category-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .criterion {
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .criterion-section {
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    .criterion-header {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .elements-list li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    .card h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    a {
+        color: #222;
+        text-decoration: none;
+    }
+
+}

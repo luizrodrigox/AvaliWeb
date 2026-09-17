@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>A10 - Incorreto</title>
+
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        button,
+        a {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Uso inadequado de tabindex</h1>
+
+    <button
+        type="button"
+        tabindex="1">
+        Primeiro
+    </button>
+
+    <button
+        type="button"
+        tabindex="2">
+        Segundo
+    </button>
+
+    <a
+        href="https://example.com"
+        tabindex="0">
+        Acessar página
+    </a>
+
+</body>
+</html>

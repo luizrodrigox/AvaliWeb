@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AvaliWeb</title>
+
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <h1>AvaliWeb</h1>
+            <p>Avaliação automatizada de interfaces web</p>
+        </header>
+
+        <section class="analysis">
+
+            <button id="analyzeCurrent">
+                Analisar página atual
+            </button>
+
+            <div class="url-section">
+
+                <label for="urlInput">
+                    Ou informe uma URL
+                </label>
+
+                <input
+                    type="url"
+                    id="urlInput"
+                    placeholder="https://exemplo.com"
+                >
+
+                <button id="analyzeUrl">
+                    Analisar URL
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="status" class="status">
+        </section>
+
+        <section id="results" class="results hidden">
+
+            <h2>Resultado da análise</h2>
+
+            <div id="pageInfo"></div>
+
+            <button
+                id="viewReport"
+                type="button"
+            >
+                Visualizar relatório detalhado
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="popup.js"></script>
+
+</body>
+</html>
