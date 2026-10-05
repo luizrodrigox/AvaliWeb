@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Teste R02 - Incorreto</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .problem-left {
+            position: absolute;
+            left: -150px;
+            top: 100px;
+            width: 200px;
+            height: 100px;
+            background: #ddd;
+        }
+
+        .problem-right {
+            position: absolute;
+            left: calc(100vw + 50px);
+            top: 250px;
+            width: 200px;
+            height: 100px;
+            background: #ddd;
+        }
+
+        .problem-bottom {
+            position: absolute;
+            left: 20px;
+            top: calc(100vh + 50px);
+            width: 200px;
+            height: 100px;
+            background: #ddd;
+        }
+
+        .normal {
+            width: 300px;
+            padding: 20px;
+            margin-top: 20px;
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Teste incorreto do R02</h1>
+
+        <div class="normal">
+            Elemento dentro da viewport.
+        </div>
+
+        <div
+            id="elemento-esquerda"
+            class="problem-left">
+            Fora da esquerda.
+        </div>
+
+        <div
+            id="elemento-direita"
+            class="problem-right">
+            Fora da direita.
+        </div>
+
+        <div
+            id="elemento-baixo"
+            class="problem-bottom">
+            Fora da parte inferior.
+        </div>
+
+    </main>
+
+</body>
+</html>

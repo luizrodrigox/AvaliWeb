@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>R03 - Correto</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .card {
+            flex: 1 1 280px;
+            min-width: 0;
+            padding: 16px;
+            border: 1px solid #ccc;
+        }
+
+        .card img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        p {
+            overflow-wrap: break-word;
+        }
+
+        button {
+            max-width: 100%;
+            padding: 12px 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .cards {
+                display: block;
+            }
+
+            .card {
+                width: 100%;
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Layout responsivo</h1>
+
+        <p>
+            Esta página possui um layout adaptável
+            para diferentes larguras de dispositivos.
+        </p>
+
+        <section class="cards">
+
+            <article class="card">
+
+                <h2>Primeiro conteúdo</h2>
+
+                <p>
+                    O conteúdo utiliza largura flexível
+                    e pode se adaptar a telas menores.
+                </p>
+
+                <button>
+                    Ação
+                </button>
+
+            </article>
+
+            <article class="card">
+
+                <h2>Segundo conteúdo</h2>
+
+                <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='300'%3E%3Crect width='800' height='300' fill='%23dddddd'/%3E%3C/svg%3E"
+                    alt="Imagem responsiva"
+                >
+
+                <p>
+                    A imagem utiliza largura máxima de
+                    100% do elemento pai.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -545,35 +545,26 @@ function getTotalOccurrences(groups) {
 ======================================== */
 
 function formatEvidenceHtml(evidence) {
-
     if (!evidence) {
-
         return "Nenhuma evidência informada.";
     }
 
+    const normalizedEvidence =
+        String(evidence).replace(
+            /Viewports mobile avaliadas:\s*([\d,\s]+)\s*CSS px/,
+            (_, viewports) =>
+                `Viewports mobile avaliadas: ${
+                    viewports.match(/\d+/g).join(" · ")
+                } CSS px`
+        );
 
-    /*
-     * Cada informação separada por vírgula
-     * será apresentada em uma nova linha.
-     */
-    const lines =
-        String(evidence)
-            .split(",")
-            .map(
-                (item) =>
-                    item.trim()
-            )
-            .filter(
-                (item) =>
-                    item.length > 0
-            );
-
+    const lines = normalizedEvidence
+        .split(/,(?![^()]*\))/)
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0);
 
     return lines
-        .map(
-            (line) =>
-                escapeHtml(line)
-        )
+        .map((line) => escapeHtml(line))
         .join("<br>");
 }
 

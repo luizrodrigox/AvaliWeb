@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>U01 - Incorreto</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        /*
+         * Todos os alvos abaixo possuem
+         * dimensões inferiores a 24 × 24 px.
+         */
+
+        #botao-pequeno {
+            width: 10px;
+            height: 10px;
+            min-width: 0;
+            min-height: 0;
+            padding: 0;
+            margin: 10px;
+            border: 0;
+            font-size: 6px;
+        }
+
+        #link-pequeno {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            min-width: 0;
+            min-height: 0;
+            padding: 0;
+            margin: 10px;
+            font-size: 6px;
+            overflow: hidden;
+        }
+
+        #input-pequeno {
+            box-sizing: border-box;
+            width: 10px;
+            height: 10px;
+            min-width: 0;
+            min-height: 0;
+            padding: 0;
+            margin: 10px;
+            border: 1px solid;
+        }
+
+        #select-pequeno {
+            box-sizing: border-box;
+            width: 10px;
+            height: 10px;
+            min-width: 0;
+            min-height: 0;
+            padding: 0;
+            margin: 10px;
+            border: 1px solid;
+            font-size: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Teste U01 - Incorreto</h1>
+
+    <button
+        id="botao-pequeno">
+        X
+    </button>
+
+    <a
+        id="link-pequeno"
+        href="#">
+        X
+    </a>
+
+    <input
+        id="input-pequeno"
+        type="text"
+        aria-label="Campo pequeno"
+    >
+
+    <select
+        id="select-pequeno"
+        aria-label="Seleção pequena">
+        <option>1</option>
+    </select>
+
+</body>
+
+</html>

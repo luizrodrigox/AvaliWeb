@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>U06 - Correto</title>
+
+    <style>
+
+        a {
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:focus {
+            outline: 2px solid black;
+        }
+
+        a:active {
+            opacity: 0.7;
+        }
+
+
+        button {
+            background: #eeeeee;
+            border: 1px solid #555555;
+        }
+
+        button:hover {
+            background: #cccccc;
+        }
+
+        button:focus {
+            outline: 2px solid black;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+
+        input {
+            border: 1px solid #555555;
+        }
+
+        input:focus {
+            border: 2px solid black;
+        }
+
+
+        select {
+            border: 1px solid #555555;
+        }
+
+        select:focus {
+            outline: 2px solid black;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Teste de feedback visual</h1>
+
+    <nav>
+
+        <a href="#inicio">
+            Página inicial
+        </a>
+
+        <a href="#produtos">
+            Produtos
+        </a>
+
+    </nav>
+
+    <main>
+
+        <button type="button">
+            Salvar
+        </button>
+
+        <label for="nome">
+            Nome
+        </label>
+
+        <input
+            id="nome"
+            type="text"
+        >
+
+        <select id="categoria">
+            <option>Categoria</option>
+        </select>
+
+    </main>
+
+</body>
+
+</html>

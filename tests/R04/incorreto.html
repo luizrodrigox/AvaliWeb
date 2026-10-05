@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R04 - Incorreto</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 700px;
+            height: 100px;
+            padding: 20px;
+            border: 1px solid #999;
+            overflow: hidden;
+        }
+
+        .title {
+            height: 30px;
+            overflow: hidden;
+            font-size: 24px;
+            line-height: 30px;
+            white-space: nowrap;
+        }
+
+        .description {
+            height: 25px;
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 25px;
+            white-space: nowrap;
+        }
+
+        .button {
+            position: absolute;
+            top: 75px;
+            left: 30px;
+            width: 150px;
+            height: 30px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<main>
+    <section class="card">
+
+        <h1 class="title">
+            Este título será cortado quando o texto aumentar
+        </h1>
+
+        <p class="description">
+            Este texto também possui altura fixa e pode perder
+            conteúdo quando seu tamanho for aumentado.
+        </p>
+
+        <button class="button">
+            Ação
+        </button>
+
+    </section>
+</main>
+
+</body>
+</html>

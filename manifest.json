@@ -1,18 +1,23 @@
 {
   "manifest_version": 3,
   "name": "AvaliWeb",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Extensão para avaliação automatizada de acessibilidade, usabilidade, design e responsividade de interfaces web.",
   "permissions": [
     "activeTab",
     "scripting",
-    "storage"
+    "storage",
+    "tabs"
   ],
 
   "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
 
   "action": {
     "default_popup": "src/popup/popup.html"

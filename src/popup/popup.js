@@ -41,7 +41,26 @@ const criteriaFiles = [
     "src/criteria/accessibility/A13-dark-theme.js",
     "src/criteria/accessibility/A14-font-resize.js",
     "src/criteria/accessibility/A15-vlibras.js",
-    "src/criteria/accessibility/A16-screen-readers.js"
+    "src/criteria/accessibility/A16-screen-readers.js",
+
+    "src/criteria/usability/U01-click-target-size.js",
+    "src/criteria/usability/U02-target-distance.js",
+    "src/criteria/usability/U03-menu-options.js",
+    "src/criteria/usability/U04-interactive-elements.js",
+    "src/criteria/usability/U05-descriptive-text.js",
+    "src/criteria/usability/U06-visual-feedback.js",
+    "src/criteria/usability/U07-button-consistency.js",
+
+    "src/criteria/design/D01-font-families.js",
+    "src/criteria/design/D02-color-count.js",
+    "src/criteria/design/D03-typography.js",
+    "src/criteria/design/D04-spacing-elements.js",
+    "src/criteria/design/D05-overlap.js",
+
+    "src/criteria/responsiveness/R01-horizontal-overflow.js",
+    "src/criteria/responsiveness/R02-elements-outside-viewport.js",
+    "src/criteria/responsiveness/R03-mobile-layout.js",
+    "src/criteria/responsiveness/R04-text-resize.js"
 
 ];
 
@@ -168,27 +187,71 @@ analyzeCurrentButton.addEventListener(
    ANALISAR URL
 ======================================== */
 
+
 analyzeUrlButton.addEventListener(
     "click",
-    () => {
-
-        const url =
-            urlInput.value.trim();
+    async () => {
+        let url = urlInput.value.trim();
 
         if (!url) {
-
             statusElement.textContent =
                 "Informe uma URL.";
 
             return;
         }
 
+        if (!/^https?:\/\//i.test(url)) {
+            url = `https://${url}`;
+        }
 
-        statusElement.textContent =
-            "A análise por URL será implementada nas próximas etapas.";
+        try {
+            const parsedUrl = new URL(url);
 
+            if (!["http:", "https:"].includes(parsedUrl.protocol)) {
+                throw new Error("Informe uma URL HTTP ou HTTPS válida.");
+            }
+
+            statusElement.textContent =
+                "Carregando página e realizando análise...";
+
+            resultsElement.classList.add("hidden");
+
+            const response = await chrome.runtime.sendMessage({
+                action: "ANALYZE_URL",
+                url: parsedUrl.href,
+                criteriaFiles
+            });
+
+            if (!response || !response.success) {
+                throw new Error(
+                    response?.error || "Não foi possível analisar a URL."
+                );
+            }
+
+            const analysis = response.analysis;
+
+            await chrome.storage.local.set({
+                avaliWebLastAnalysis: analysis
+            });
+
+            showAnalysisResult(analysis);
+
+            statusElement.textContent =
+                "Análise da URL concluída com sucesso.";
+
+            resultsElement.classList.remove("hidden");
+        } catch (error) {
+            console.error(
+                "Erro ao analisar URL:",
+                error
+            );
+
+            statusElement.textContent =
+                error.message || "Erro ao realizar a análise.";
+        }
     }
 );
+
 
 
 /* ========================================
