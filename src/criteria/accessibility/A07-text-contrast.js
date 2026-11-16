@@ -42,10 +42,10 @@ globalThis.AvaliWebCriteria.A07 =
                 window.getComputedStyle(element);
 
             const textColor =
-                parseColor(style.color);
+                a07ParseColor(style.color);
 
             const backgroundColor =
-                getEffectiveBackgroundColor(element);
+                a07GetEffectiveBackgroundColor(element);
 
             if (
                 !textColor ||
@@ -237,71 +237,53 @@ function getDirectText(element) {
 }
 
 
-function getEffectiveBackgroundColor(element) {
-
-    let current =
-        element;
+function a07GetEffectiveBackgroundColor(element) {
+    let current = element;
 
     while (current) {
+        const color = window.getComputedStyle(current).backgroundColor;
+        const background = a07ParseColor(color);
 
-        const style =
-            window.getComputedStyle(current);
-
-        const background =
-            parseColor(
-                style.backgroundColor
-            );
-
-        if (
-            background &&
-            background.a > 0
-        ) {
+        if (background && background.a > 0) {
             return background;
         }
 
-        current =
-            current.parentElement;
+        if (!background && color && color !== "transparent") {
+            return null;
+        }
+
+        current = current.parentElement;
     }
 
-    /*
-     * Se nenhum elemento possuir fundo
-     * definido, considera-se o fundo padrão
-     * branco para a avaliação.
-     */
-    return {
-        r: 255,
-        g: 255,
-        b: 255,
-        a: 1
-    };
+    return { r: 255, g: 255, b: 255, a: 1 };
 }
 
-
-function parseColor(color) {
-
+function a07ParseColor(color) {
     if (!color) {
         return null;
     }
 
-    const rgb =
-        color.match(
-            /^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*([\d.]+))?\s*\)$/
-        );
+    const m = color.match(
+        /^rgba?\(\s*([\d.]+)[\s,]+([\d.]+)[\s,]+([\d.]+)(?:\s*[,/]\s*([\d.]+%?))?\s*\)$/i
+    );
 
-    if (rgb) {
-
-        return {
-            r: Number(rgb[1]),
-            g: Number(rgb[2]),
-            b: Number(rgb[3]),
-            a:
-                rgb[4] !== undefined
-                    ? Number(rgb[4])
-                    : 1
-        };
+    if (m) {
+        let a = 1;
+        if (m[4] !== undefined) {
+            a = m[4].endsWith("%") ? parseFloat(m[4]) / 100 : Number(m[4]);
+        }
+        return { r: Number(m[1]), g: Number(m[2]), b: Number(m[3]), a };
     }
 
-    return null;
+    const ctx = document.createElement("canvas").getContext("2d");
+    ctx.fillStyle = "#000";
+    ctx.fillStyle = color;
+
+    const n = ctx.fillStyle.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+
+    return n
+        ? { r: parseInt(n[1], 16), g: parseInt(n[2], 16), b: parseInt(n[3], 16), a: 1 }
+        : null;
 }
 
 
