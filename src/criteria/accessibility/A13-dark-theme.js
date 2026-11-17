@@ -205,7 +205,7 @@ globalThis.AvaliWebCriteria.A13 =
             return {
                 id: "A13",
                 category: "accessibility",
-                name: "Tema escuro/alto contraste",
+                name: "Presença de indícios de controle de tema escuro/alto contraste",
                 score: 10,
                 classification: "Adequado",
                 evaluated: 1,
@@ -240,7 +240,7 @@ globalThis.AvaliWebCriteria.A13 =
         return {
             id: "A13",
             category: "accessibility",
-            name: "Tema escuro/alto contraste",
+            name: "Presença de indícios de controle de tema escuro/alto contraste",
             score: 0,
             classification: "Problema",
             evaluated: 1,

@@ -183,7 +183,7 @@ globalThis.AvaliWebCriteria.A15 =
             return {
                 id: "A15",
                 category: "accessibility",
-                name: "VLibras",
+                name: "Presença de integração técnica com o VLibras",
                 score: 10,
                 classification: "Adequado",
                 evaluated: 1,
@@ -219,7 +219,7 @@ globalThis.AvaliWebCriteria.A15 =
         return {
             id: "A15",
             category: "accessibility",
-            name: "VLibras",
+            name: "Presença de integração técnica com o VLibras",
             score: 0,
             classification: "Problema",
             evaluated: 1,
